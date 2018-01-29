@@ -14,15 +14,19 @@ public class VigenereCipher {
 		char data[] = input.toCharArray();
 		int lenData = input.length() - 1;
 		int lenKey = keyword.length();
-		for (int i =0; i <= lenData; i++) {
-			char oldChar  = input.charAt(i);
-			//repeat the keyword until the end of lenData
-			char keyChar = keyword.charAt(i % lenKey);
-			//turn the letter into values between 0 and 25
-			int codedChar = ((int) oldChar + (int) keyChar  - charConst * 2) % 26;
-			data[i] = (char) (codedChar + charConst);		
+		if (lenKey > 0) {
+			for (int i =0; i <= lenData; i++) {
+				char oldChar  = input.charAt(i);
+				//repeat the keyword until the end of lenData
+				char keyChar = keyword.charAt(i % lenKey);
+				//turn the letter into values between 0 and 25
+				int codedChar = ((int) oldChar + (int) keyChar  - charConst * 2) % 26;
+				data[i] = (char) (codedChar + charConst);		
+			}
+			return new String(data);
+		} else {
+			return input;
 		}
-		return new String(data);
 	}
 
 	/**
@@ -37,20 +41,24 @@ public class VigenereCipher {
 		char data[] = input.toCharArray();
 		int lenData = input.length() - 1;
 		int lenKey = keyword.length();
-		for (int i =0; i <= lenData; i++) {
-			char oldChar  = input.charAt(i);
-			//repeat the keyword until the end of lenData
-			char keychar = keyword.charAt(i % lenKey);
-			int codedChar = ((int) oldChar - (int) keychar);
-			//turn the letter into values between 0 and 25
-			if (codedChar < 0) {
-				codedChar = (26 + codedChar) % 26;
-			} else {
-				codedChar = codedChar % 26;
-			}	
-			data[i] = (char) (codedChar + charConst);		
+		if (lenKey > 0) {
+			for (int i =0; i <= lenData; i++) {
+				char oldChar  = input.charAt(i);
+				//repeat the keyword until the end of lenData
+				char keychar = keyword.charAt(i % lenKey);
+				int codedChar = ((int) oldChar - (int) keychar);
+				//turn the letter into values between 0 and 25
+				if (codedChar < 0) {
+					codedChar = (26 + codedChar) % 26;
+				} else {
+					codedChar = codedChar % 26;
+				}	
+				data[i] = (char) (codedChar + charConst);		
+			}
+			return new String(data);
+		} else {
+			return input;
 		}
-		return new String(data);
 	}
 
 	/**
@@ -90,4 +98,4 @@ public class VigenereCipher {
 		}
 		in.close();
 	}
-}	 
+} 	 
