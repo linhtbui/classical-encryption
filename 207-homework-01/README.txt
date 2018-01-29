@@ -5,8 +5,8 @@
 - Mahira Faran
 
 2. Description:
-Two java files for the two questions of Homework 1 and a README text file
-with other information
+Two java programs i.e CaesarCipher and VigenereCipher that decode and
+encode user messages in two different ways.
 
 3. Citation and Resources
 - Piazza and Anya's help
