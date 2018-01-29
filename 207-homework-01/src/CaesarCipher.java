@@ -14,6 +14,7 @@ public class CaesarCipher {
 		int len = input.length() - 1;
 		for (int i = 0; i <= len; i++) {
 			char oldChar = input.charAt(i);
+			// change the value of the letter to the range 0 - 26
 			int codedChar = ((int) oldChar + base - charConst) % 26;
 			data[i] = (char) (codedChar + charConst);
 		}
@@ -34,6 +35,7 @@ public class CaesarCipher {
 		for (int i = 0; i <= len; i++) {
 			char oldChar = input.charAt(i);
 			int codedChar = ((int) oldChar - base - charConst);
+			// change the value of the letter to the range 0 - 26
 			if (codedChar < 0) {
 				codedChar = (26 + codedChar) % 26;
 			} else {
@@ -50,20 +52,20 @@ public class CaesarCipher {
 	public static void main(String[] args) {
 
 		System.out.println("This program encrypts and decrypts messages using the Caeser Cipher.");
-		System.out.println("Would you like to encode or decode a message?");
+		System.out.print("Would you like to encode or decode a message? ");
 
 		Scanner in = new Scanner(System.in);
 		String response = in.nextLine();
-
+		//options to encode or decode
 		try {
 			if (response.equals("encode")) {
-				System.out.println("Enter the string to encode");
+				System.out.print("Enter the string to encode: ");
 				String input = in.nextLine();
 				for (int i = 0; i < 26; i++) {
 					System.out.printf("n = %d: %s\n", i, encode(input, i));
 				}
 			} else if (response.equals("decode")) {
-				System.out.println("Enter the string to decode");
+				System.out.print("Enter the string to decode ");
 				String input = in.nextLine();
 				for (int i = 0; i < 26; i++) {
 					System.out.printf("n = %d: %s\n", i, decode(input, i));
