@@ -64,33 +64,30 @@ public class VigenereCipher {
 
 		Scanner in = new Scanner(System.in);
 		String response = in.nextLine();
-		
-        //options to encode or decode
-		try {
-			if (response.equals("encode")) {
 
-				System.out.print("Enter the string to encode: ");
-				response = in.nextLine();
+		//options to encode or decode
+		if (response.equals("encode")) {
 
-				System.out.print("Enter the key: ");
-				String keyCode = in.nextLine();
+			System.out.print("Enter the string to encode: ");
+			response = in.nextLine();
 
-				System.out.println(encode(response, keyCode));
-			}
-			else if (response.equals("decode")) {
-				System.out.println("Enter the string to decode: ");
-				response = in.nextLine();
-				System.out.print("Enter the key: ");
-				String keyCode = in.nextLine();
+			System.out.print("Enter the key: ");
+			String keyCode = in.nextLine();
 
-				System.out.println(decode(response, keyCode));
-			}
-
-			else {
-				System.out.println("Valid options are \"encode\" or \"decode\"");
-			}
-		} finally {
-			in.close();
+			System.out.println(encode(response, keyCode));
 		}
-	}	
-} 
+		else if (response.equals("decode")) {
+			System.out.println("Enter the string to decode: ");
+			response = in.nextLine();
+			System.out.print("Enter the key: ");
+			String keyCode = in.nextLine();
+
+			System.out.println(decode(response, keyCode));
+		}
+
+		else {
+			System.out.println("Valid options are \"encode\" or \"decode\"");
+		}
+		in.close();
+	}
+}	 

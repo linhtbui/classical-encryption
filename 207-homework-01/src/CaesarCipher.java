@@ -26,7 +26,7 @@ public class CaesarCipher {
 	 * @param base : an integer
 	 * @return: output, a string 
 	 */
-	
+
 
 	public static String decode(String input, int base) {
 		int charConst = (int) 'a';
@@ -57,26 +57,23 @@ public class CaesarCipher {
 		Scanner in = new Scanner(System.in);
 		String response = in.nextLine();
 		//options to encode or decode
-		try {
-			if (response.equals("encode")) {
-				System.out.print("Enter the string to encode: ");
-				String input = in.nextLine();
-				for (int i = 0; i < 26; i++) {
-					System.out.printf("n = %d: %s\n", i, encode(input, i));
-				}
-			} else if (response.equals("decode")) {
-				System.out.print("Enter the string to decode ");
-				String input = in.nextLine();
-				for (int i = 0; i < 26; i++) {
-					System.out.printf("n = %d: %s\n", i, decode(input, i));
-				}
+		if (response.equals("encode")) {
+			System.out.print("Enter the string to encode: ");
+			String input = in.nextLine();
+			for (int i = 0; i < 26; i++) {
+				System.out.printf("n = %d: %s\n", i, encode(input, i));
+			}
+		} else if (response.equals("decode")) {
+			System.out.print("Enter the string to decode ");
+			String input = in.nextLine();
+			for (int i = 0; i < 26; i++) {
+				System.out.printf("n = %d: %s\n", i, decode(input, i));
+			}
 
-			}
-			else {
-				System.out.println("Valid options are \"encode\" or \"decode\"");
-			}
-		} finally {
-			in.close();
 		}
+		else {
+			System.out.println("Valid options are \"encode\" or \"decode\"");
+		}
+		in.close();
 	}
 }
