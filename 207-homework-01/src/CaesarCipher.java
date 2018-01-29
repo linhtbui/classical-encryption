@@ -1,37 +1,51 @@
 import java.util.Scanner;
 
 public class CaesarCipher {
+	/**
+	 * @function: encodes input string by using the Caesar Cipher method 
+	 * @param input : a string
+	 * @param base : an integer
+	 * @return: output, a string 
+	 */
 
 	public static String encode(String input, int base) {
 		int charConst = (int) 'a';
 		char data[] = input.toCharArray();
 		int len = input.length() - 1;
 		for (int i = 0; i <= len; i++) {
-			char oldchar = input.charAt(i);
-			int codedchar = ((int) oldchar + base - charConst) % 26;
-			char newchar = (char) (codedchar + charConst);
-			data[i] = newchar;
+			char oldChar = input.charAt(i);
+			int codedChar = ((int) oldChar + base - charConst) % 26;
+			data[i] = (char) (codedChar + charConst);
 		}
 		return new String(data);
 	}
+	/**
+	 * @function: decodes input string by using the Caesar Cipher method 
+	 * @param input : a string
+	 * @param base : an integer
+	 * @return: output, a string 
+	 */
+	
 
 	public static String decode(String input, int base) {
 		int charConst = (int) 'a';
 		char data[] = input.toCharArray();
 		int len = input.length() - 1;
 		for (int i = 0; i <= len; i++) {
-			char oldchar = input.charAt(i);
-			int codedchar = ((int) oldchar - base - charConst);
-			if (codedchar < 0) {
-				codedchar = (26 + codedchar) % 26;
+			char oldChar = input.charAt(i);
+			int codedChar = ((int) oldChar - base - charConst);
+			if (codedChar < 0) {
+				codedChar = (26 + codedChar) % 26;
 			} else {
-				codedchar = codedchar % 26;
+				codedChar = codedChar % 26;
 			}
-			char newchar = (char) (codedchar + charConst);
-			data[i] = newchar;
+			data[i] = (char) (codedChar + charConst);
 		}
 		return new String(data);
 	}
+	/**
+	 * Main function takes user input which can either be encode or decode and produces output string accordingly
+	 */
 
 	public static void main(String[] args) {
 
